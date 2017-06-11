@@ -1,4 +1,3 @@
-/ElMasch.pdf
 *.synctex*
 /tmp
 *.out
@@ -6,4 +5,4 @@
 *.log
 *.dvi
 *.toc
-*.pdf
+*AppElm.pdf

@@ -25,10 +25,10 @@
 	The gradient of a scalar field reveals the direction of the steepest ascent of the scalar function (perpendicular to the corresponding isolines of the function). \\ \\
 	\begin{tabular}{ll}
 		Scalar field: & \(\displaystyle f = f\left(\vec{r}\right) = f\left(x,y,z\right) \) \\ 
-		Gradient is a vector: & \(\displaystyle grad~f = \lim\limits_{diameter\left(D\right)\rightarrow 0} \frac{\oiint_{boundary\left(D\right)}f \cdot \vec{dA}}{measure\left(D\right)}, D\subseteq R^3 \) \\
-		Gradient in Cartesian coordinates: & \(\displaystyle grad~f = \frac{\partial f}{\partial x} \cdot \vec{e_x}+\frac{\partial f}{\partial y} \cdot \vec{e_y}+\frac{\partial f}{\partial z} \cdot \vec{e_z} \) \\ 
+		Gradient is a vector: & \(\displaystyle \textrm{grad }f = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)}f \cdot \vec{dA}}{\textrm{measure}\left(D\right)}, D\subseteq R^3 \) \\
+		Gradient in Cartesian coordinates: & \(\displaystyle \textrm{grad }f = \frac{\partial f}{\partial x} \cdot \vec{e_x}+\frac{\partial f}{\partial y} \cdot \vec{e_y}+\frac{\partial f}{\partial z} \cdot \vec{e_z} \) \\ 
 		$\nabla$-operator (Nabla): & \(\displaystyle \nabla = \frac{\partial}{\partial x} \cdot \vec{e_x}+\frac{\partial}{\partial y} \cdot \vec{e_y}+\frac{\partial}{\partial z} \cdot \vec{e_z} \)\\
-		Gradient and $\nabla$-operator: & \(\displaystyle grad~f = \nabla \cdot f \)\\
+		Gradient and $\nabla$-operator: & \(\displaystyle \textrm{grad }f = \nabla \cdot f \)\\
 	\end{tabular} 
 \end{minipage}
 
@@ -40,7 +40,7 @@
 	In the central point $A$ of this field distribution is: $div \vec{a} > 0$. Generally speaking, a positive or negative divergence reveals a field source or a field sink, respectively. \\ \\
 	\begin{tabular}{ll}
 		Vector field: & \(\displaystyle \vec{a} = \vec{a}\left(\vec{r}\right) = \vec{a}\left(x,y,z\right)\) \\
-		Divergence is a scalar: & \(\displaystyle div~\vec{a} = \lim\limits_{diameter\left(D\right)\rightarrow 0} \frac{\oiint_{boundary\left(D\right)} \vec{a} \cdot \vec{dA}}{measure\left(D\right)}, D\subseteq R^3\) \\
+		Divergence is a scalar: & \(\displaystyle div~\vec{a} = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)} \vec{a} \cdot \vec{dA}}{\textrm{measure}\left(D\right)}, D\subseteq R^3\) \\
 		Divergence in Cartesian coordinates: & \(\displaystyle div~\vec{a} = \frac{\partial a_x}{\partial x} + \frac{\partial a_y}{\partial y} + \frac{\partial a_z}{\partial z} \)\\
 		Divergence and $\nabla$-operator: & \(\displaystyle div~\vec{a} = \nabla \cdot \vec{a} \) \\
 	\end{tabular}
@@ -54,15 +54,15 @@
 	In the central point $A$ of this field distribution is: $curl \vec{a} > 0$. Generally speaking non-zero curl reveals a rotational field character. (Curl looks what stays in this area).\\ \\
 	\begin{tabular}{ll}
 		Vector field: & \(\displaystyle \vec{a} = \vec{a}\left(\vec{r}\right) = \vec{a}\left(x,y,z\right)\)\\
-		Curl is a vector: & \(\displaystyle curl~\vec{a} = \lim\limits_{diameter\left(D\right)\rightarrow 0} \frac{\oiint_{boundary\left(D\right)} \vec{dA} \times \vec{a}}{measure\left(D\right)}, D\subseteq R^3\)\\
-		Curl in Cartesian coordinates: & \(\displaystyle curl~\vec{a} = 
+		Curl is a vector: & \(\displaystyle \textrm{curl }\vec{a} = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)} \vec{dA} \times \vec{a}}{\textrm{measure}\left(D\right)}, D\subseteq R^3\)\\
+		Curl in Cartesian coordinates: & \(\displaystyle \textrm{curl }\vec{a} = 
 		\begin{vmatrix}
 			\vec{e_x} & \vec{e_y} & \vec{e_z} \\
 			\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 			a_x & a_y & a_z \\
 		\end{vmatrix}\) {\tiny \texttt{other coordinates in Bronstein: P.719ff}}\\
 		& \(\displaystyle = \vec{e_x}\frac{\partial}{\partial y}a_z +   		\vec{e_y}\frac{\partial}{\partial z}a_x +\vec{e_z}\frac{\partial}{\partial x}a_y - \vec{e_x}\frac{\partial}{\partial z}a_y - \vec{e_y}\frac{\partial}{\partial x}a_z - \vec{e_z}\frac{\partial}{\partial y}a_x\) \\
-		Curl and $\nabla$-operator: & \(\displaystyle curl~\vec{a} = \nabla \times \vec{a} \) \\
+		Curl and $\nabla$-operator: & \(\displaystyle \textrm{curl }\vec{a} = \nabla \times \vec{a} \) \\
 	\end{tabular}
 \end{minipage}
 
@@ -86,21 +86,45 @@ The line integral of an electrostatic field only depends on the start and end po
 \textbf{\\ \\ Theorems\\}
 	Gauss theorem:
 	\begin{equation*}
-		\oiint\limits_{\left(\partial \Omega\right)} \vec{a} \cdot d\vec{S} = \iiint\limits_{\left(\Omega\right)} \nabla \cdot \vec{a}dV
+		\oiint\limits_{\left(\partial \Omega\right)} \vec{a} \cdot d\vec{S} = \iiint\limits_{\left(\Omega\right)} \nabla \cdot \vec{a} \cdot dV
 	\end{equation*}
 	Stokes theorem:
 	\begin{equation*}
 		\int\limits_{\left(\partial S\right)} \vec{a} \cdot d\vec{l} = \iint\limits_{\left(S\right)} \nabla \times \vec{a} \cdot d\vec{S}
 	\end{equation*}
-	Continuity equation:
+	
+\textbf{\\ \\Continuity Equation\\}
+	The current through a closed oriented surface $(S)$ can be computed as
 	\begin{equation*}
-		\oiint\limits_{\left(\partial \Omega\right)} \vec{J}\left(\vec{r}\right)\cdot d\vec{S}\left(\vec{r}\right) = -\frac{\partial Q}{\partial t} = -\iiint\limits_{\left(\Omega\right)} \frac{\partial \rho\left(\vec{r}\right)}{\partial t}dV\left(\vec{r}\right) \rightarrow \nabla \vec{J} = - \frac{\partial \rho}{\partial t}
+		I = \oiint\limits_{\left(S\right)} \vec{J} \cdot \vec{dS}
 	\end{equation*}
+	Because of conservation the outflowing current must be equal to the decreasing total charge in volume $(V)$.
+	\begin{equation*}
+		I = -\frac{dQ}{dt} = -\frac{d}{dt}\iiint\limits_{\left(V\right)} \rho \cdot dV = -\iiint\limits_{\left(V\right)} \frac{d \rho}{dt}dV
+	\end{equation*}
+	Both combined leads to the Continuity Equation
+	\begin{equation*}
+		\oiint\limits_{\left(S\right)} \vec{J} \cdot \vec{dS} = - \iiint\limits_{\left(V\right)} \frac{d\rho}{dt}dV \rightarrow \nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}
+	\end{equation*}
+
+\textbf{\\ Ohmic law\\}
+\begin{minipage}[lt]{11cm}
+	\begin{tabular}{l}
+		\(\displaystyle dI = \frac{dU}{R} = G \cdot dU = \sigma \cdot \frac{dA}{l} \cdot dU \) \\
+		\(\displaystyle G = \sigma \cdot \frac{dA}{l} \hspace{2cm} R = \rho \cdot \frac{l}{s} \) \\
+		\(\displaystyle J \cdot dA = \sigma \cdot \frac{dA}{l} \cdot E \cdot l \rightarrow J = \sigma \cdot E \) \\
+		or as vectors: \(\displaystyle \vec{J} = \sigma \cdot \vec{E}\)
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[rt]{8cm}
+	\includegraphics[width=.5\textwidth]{./images/ohmic.pdf}
+\end{minipage}
+
 
 \textbf{\\ \\ Rules \\}
 \begin{tabular}{ll}
-	Curl of a gradient is always equal to zero: & \(\displaystyle \nabla \times \left(\nabla a\right) \equiv 0\) \\
-	Divergence of a curl si always equal to zero: & \(\displaystyle \nabla \cdot \left(\nabla \times \vec{a}\right) \equiv 0 \)\\
+	Curl of a gradient is always equal to zero: & \(\displaystyle \nabla \times \left(\nabla \cdot \vec{a} \right) \equiv 0\) \\
+	Divergence of a curl is always equal to zero: & \(\displaystyle \nabla \cdot \left(\nabla \times \vec{a}\right) \equiv 0 \)\\
 \end{tabular}
 
 \textbf{\\ \\ Operators \\} 

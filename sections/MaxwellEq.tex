@@ -19,7 +19,7 @@
 	\textbf{Ampère's law, 1826\newline}
 	The sum of all currents through a closed oriented area can be computed as
 	\begin{equation}
-		\oint\limits_{\left(\partial S\right)} \vec{H}\left(\vec{r}\right)\cdot d\vec{l}\left(\vec{r}\right) = \sum_{i=1}^{N} I_i = \iint\limits_{\left(S\right)}\vec{J}\left(\vec{r}\right)\cdot d\vec{S}\left(\vec{r}\right)
+		\oint\limits_{\left(\partial S\right)} \vec{H}\left(\vec{r}\right)\cdot d\vec{l}\left(\vec{r}\right) = \sum_{k=1}^{N} I_k = \Theta =  \iint\limits_{\left(S\right)}\vec{J}\left(\vec{r}\right)\cdot d\vec{S}\left(\vec{r}\right)
 		\label{eq:MaxwellInt3}
 	\end{equation}
 	
@@ -38,7 +38,6 @@
 
 \subsection{Maxwell Equations in time domain}
 Using Gauss and Stokes Theorem on (\ref{eq:MaxwellInt1})-(\ref{eq:MaxwellInt4}) the following Maxwell Equations in time domain can be obtained as 
-
 \begin{multicols}{2}
 	\begin{equation}
 		\nabla \cdot \vec{D} = \rho
@@ -96,39 +95,4 @@ applied to the Maxwell Equations in time domain the following is obtained
 \end{equation*}
 \begin{equation*}
 	\nabla \times \underline{\vec{E}}\left(\vec{r}\right) = - j\omega \underline{\vec{B}}\left(\vec{r}\right)
-\end{equation*}
-
-\subsection{Potentials}
-\subsubsection{Electric scalar potential}
-In case when the electric charge is present and the magnetic field does not depend on time the following can be written
-\begin{equation*}
-	\nabla \cdot \vec{D} = \nabla \cdot \left(\varepsilon \vec{E}\right) = \rho
-\end{equation*}
-\begin{equation*}
-	\nabla \times \vec{E} = 0
-\end{equation*}
-Due to the fact that a curl of a gradient is always equal to zero, it is possible in this case to represent the electric field as a gradient of a scalar function as
-\begin{equation*}
-	\vec{E} = -\nabla \Phi
-\end{equation*}
-which is called the electric scalar potential. It must fulfil the following partial differential equation
-\begin{equation*}
-	-\nabla \cdot \left(\varepsilon \nabla \Phi\right) = \rho
-\end{equation*}
-
-\subsubsection{Magnetic vector potential}
-In case when the electric field does not depend on time the following can be written
-\begin{equation*}
-	\nabla \cdot \vec{B} = 0
-\end{equation*}
-\begin{equation*}
-	\nabla \times \vec{H} = \vec{J}
-\end{equation*}
-Due to the fact that a divergence of a curl is always equal to zero, it is possible in this case to represent the magnetic flux density as a curl of a vector function 
-\begin{equation*}
-	\vec{B} = \nabla \times \vec{A}
-\end{equation*}
-which is called the magnetic vector potential. It must fulfil the following partial differential equation
-\begin{equation*}
-	\underbrace{\underbrace{\nabla \times \left(\frac{1}{\mu}\underbrace{\nabla \times \vec{A}}_{\bot}\right)}_{\bot} = \vec{J}}_{||}
 \end{equation*}
