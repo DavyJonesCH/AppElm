@@ -1,13 +1,13 @@
 \section{Stationary Current Distribution}
 
-Since $\frac{\partial}{\partial t} = 0$ Maxwell Equations (\ref{eq:MaxwellDiff1_2}), (\ref{eq:MaxwellDiff1_3}), (\ref{eq:MaxwellDiff2_2}) and (\ref{eq:MaxwellDiff2_3}) can be written as \color{green}Maxwell Equations number?\color{black}
+Since $\frac{\partial}{\partial t} = 0$ the Continuity Equation can be written as
 
 \begin{tabular}{ll}
 	\(\displaystyle \nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t} =  0\) \\
 	\(\displaystyle \nabla \cdot \vec{J} = 0 \rightarrow \nabla \cdot \left(\sigma \vec{E}\right) \rightarrow \nabla \cdot \left(\sigma V \varphi\right) = 0\) \\
 \end{tabular}
 
-The PDE can be written as
+Thus, the PDE is
 \begin{equation*}
 	\frac{\partial}{\partial x}\left(\sigma \frac{\partial \varphi}{\partial x}\right) +\frac{\partial}{\partial y}\left(\sigma \frac{\partial \varphi}{\partial y}\right)
 	+\frac{\partial}{\partial z}\left(\sigma \frac{\partial \varphi}{\partial z}\right) = 0, \left(x,y,z\right) \in \Omega \subseteq R^2
@@ -23,14 +23,14 @@ The PDE can be written as
 		\(\displaystyle V\left(x,y\right) = 0, \left(x,y\right) \in \partial_D \Omega\)\\ \\
 		
 		\(\displaystyle \partial_D\Omega\cup\partial_{N1}\Omega\cup\partial_{N2}\Omega = \partial\Omega = \text{boundary}(\Omega) \)\\
-		Eine Randbedingung muss zwingend Dirichlet sein!
+		\textbf{One BC must be a Dirichlet-BC!}
 	\end{tabular}
 \end{minipage}
 \begin{minipage}[rt]{8cm}
 	\includegraphics[width=.8\textwidth]{./images/CurrentDistribution.pdf}
 \end{minipage}
 
-\textbf{\\ Post processing \\ }
+\textbf{\\ \\ Post processing \\ }
 \begin{tabular}{ll}
 	Loss density $\left[\frac{W}{m^3}\right]$: & \(\displaystyle p_L = \vec{J} \cdot \vec{E} = \sigma \cdot \vec{E}^2 = \frac{\vec{J}^2}{\sigma} \)\\
 	Total losses $[W]$: & \(\displaystyle P_L = \iiint\limits_{\left(V\right)} p_L \cdot dV = \iiint\limits_{\left(V\right)} \sigma \cdot \vec{E}^2 \cdot dV \) \\
