@@ -1,38 +1,46 @@
-\section{Stationary Current Distribution}
+\section{Magnetostatic Analysis}
 
-Since $\frac{\partial}{\partial t} = 0$ Maxwell Equations (\ref{eq:MaxwellDiff1_2}), (\ref{eq:MaxwellDiff1_3}), (\ref{eq:MaxwellDiff2_2}) and (\ref{eq:MaxwellDiff2_3}) can be written as \color{green}Maxwell Equations number?\color{black}
-
-\begin{tabular}{ll}
-	\(\displaystyle \nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t} =  0\) \\
-	\(\displaystyle \nabla \cdot \vec{J} = 0 \rightarrow \nabla \cdot \left(\sigma \vec{E}\right) \rightarrow \nabla \cdot \left(\sigma V \varphi\right) = 0\) \\
-\end{tabular}
-
-The PDE can be written as
+\textbf{Magnetic vector potential \\ \\}
+In case when the electric field does not depend on time the following can be written
 \begin{equation*}
-	\frac{\partial}{\partial x}\left(\sigma \frac{\partial \varphi}{\partial x}\right) +\frac{\partial}{\partial y}\left(\sigma \frac{\partial \varphi}{\partial y}\right)
-	+\frac{\partial}{\partial z}\left(\sigma \frac{\partial \varphi}{\partial z}\right) = 0, \left(x,y,z\right) \in \Omega \subseteq R^2
+	\nabla \cdot \vec{B} = 0
+\end{equation*}
+\begin{equation*}
+	\nabla \times \vec{H} = \vec{J}
+\end{equation*}
+Due to the fact that a divergence of a curl is always equal to zero, it is possible in this case to represent the magnetic flux density as a curl of a vector function 
+\begin{equation*}
+	\vec{B} = \nabla \times \vec{A}
+\end{equation*}
+which is called the magnetic vector potential. It must fulfil the following partial differential equation
+\begin{equation*}
+	\underbrace{\underbrace{\nabla \times \left(\frac{1}{\mu}\underbrace{\nabla \times \vec{A}}_{\bot}\right)}_{\bot} = \vec{J}}_{||}
+\end{equation*}
+If the material is homogeneous, the last equation could be further simplified as 
+\begin{equation*}
+	\Delta\vec{A} = -\mu \vec{J}
 \end{equation*}
 
 \textbf{\\ Boundary Value Problem (BVP)\\}
 \begin{minipage}[lt]{11cm}
 	\begin{tabular}{l}
-		\(\displaystyle \frac{\partial}{\partial x}\left(\sigma \frac{\partial V}{\partial x}\right) +\frac{\partial}{\partial y}\left(\sigma \frac{\partial V}{\partial y}\right)
-		= 0, \left(x,y\right) \in \Omega \subseteq R^2 \) \\ \\
-		\(\displaystyle \frac{\partial V}{\partial n} = 0, \left(x,y\right) \in \partial_{N1} \Omega\) \\
-		\(\displaystyle \frac{\partial V}{\partial n} = \frac{I}{\sigma \cdot S_{N2}}, \left(x,y\right) \in \partial_{N2} \Omega\) \\
-		\(\displaystyle V\left(x,y\right) = 0, \left(x,y\right) \in \partial_D \Omega\)\\ \\
-		
-		\(\displaystyle \partial_D\Omega\cup\partial_{N1}\Omega\cup\partial_{N2}\Omega = \partial\Omega = \text{boundary}(\Omega) \)\\
-		Eine Randbedingung muss zwingend Dirichlet sein!
+		\textbf{3D:} \\
+		\(\displaystyle \nabla \times \left(\frac{1}{\mu}\nabla \times \vec{A}\right) = \vec{J} \) \\
+		\(\displaystyle \vec{n} \times \vec{A} = 0, \textrm{ over } \partial_D\Omega \) \\
+		\(\displaystyle \vec{n} \times \nabla \times \vec{A} = 0,\textrm{ over } \partial_N\Omega \) \\
+		\textbf{2D planar (from book):} \\
+		\(\displaystyle -\frac{\partial }{\partial x} \left(\frac{1}{\mu} \frac{\partial A_z}{\partial x}\right) - \frac{\partial }{\partial y} \left(\frac{1}{\mu} \frac{\partial A_z}{\partial y}\right) = J_z \) \\
+		\(\displaystyle A_z = 0, \textrm{ over } \partial_D\Omega \) \\
+		\(\displaystyle \frac{\partial A_z}{\partial n} = 0, \textrm{ over } \partial_D\Omega\) \\
+		\textbf{First, the current density $\vec{J}$ must be computed to obtain a magnetostatic solution.}
 	\end{tabular}
 \end{minipage}
 \begin{minipage}[rt]{8cm}
-	\includegraphics[width=.8\textwidth]{./images/CurrentDistribution.pdf}
+	\includegraphics[width=.8\textwidth]{./images/BVP_magnetostatic.pdf}
 \end{minipage}
 
-\textbf{\\ Post processing \\ }
+\textbf{\\ \\ Post processing \\ }
 \begin{tabular}{ll}
-	Loss density $\left[\frac{W}{m^3}\right]$: & \(\displaystyle p_L = \vec{J} \cdot \vec{E} = \sigma \cdot \vec{E}^2 = \frac{\vec{J}^2}{\sigma} \)\\
-	Total losses $[W]$: & \(\displaystyle P_L = \iiint\limits_{\left(V\right)} p_L \cdot dV = \iiint\limits_{\left(V\right)} \sigma \cdot \vec{E}^2 \cdot dV \) \\
-	Resistance $[\Omega]$: & \(\displaystyle R = \frac{P_L}{I^2}\) \\
+	Magnetic energy $\left[Ws\right]$: & \(\displaystyle W_m = \frac{1}{2} \iiint\limits_{\left(\Omega\right)} \vec{B} \cdot \vec{H} dV \) \\
+	Inductivity $\left[H\right]$: & \(\displaystyle \frac{2 W_m}{I^2} \) 
 \end{tabular}
