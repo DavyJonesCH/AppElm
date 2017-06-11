@@ -86,21 +86,45 @@ The line integral of an electrostatic field only depends on the start and end po
 \textbf{\\ \\ Theorems\\}
 	Gauss theorem:
 	\begin{equation*}
-		\oiint\limits_{\left(\partial \Omega\right)} \vec{a} \cdot d\vec{S} = \iiint\limits_{\left(\Omega\right)} \nabla \cdot \vec{a}dV
+		\oiint\limits_{\left(\partial \Omega\right)} \vec{a} \cdot d\vec{S} = \iiint\limits_{\left(\Omega\right)} \nabla \cdot \vec{a} \cdot dV
 	\end{equation*}
 	Stokes theorem:
 	\begin{equation*}
 		\int\limits_{\left(\partial S\right)} \vec{a} \cdot d\vec{l} = \iint\limits_{\left(S\right)} \nabla \times \vec{a} \cdot d\vec{S}
 	\end{equation*}
-	Continuity equation:
+	
+\textbf{\\ \\Continuity Equation\\}
+	The current through a closed oriented surface $(S)$ can be computed as
 	\begin{equation*}
-		\oiint\limits_{\left(\partial \Omega\right)} \vec{J}\left(\vec{r}\right)\cdot d\vec{S}\left(\vec{r}\right) = -\frac{\partial Q}{\partial t} = -\iiint\limits_{\left(\Omega\right)} \frac{\partial \rho\left(\vec{r}\right)}{\partial t}dV\left(\vec{r}\right) \rightarrow \nabla \vec{J} = - \frac{\partial \rho}{\partial t}
+		I = \oiint\limits_{\left(S\right)} \vec{J} \cdot \vec{dS}
 	\end{equation*}
+	Because of conservation the outflowing current must be equal to the decreasing total charge in volume $(V)$.
+	\begin{equation*}
+		I = -\frac{dQ}{dt} = -\frac{d}{dt}\iiint\limits_{\left(V\right)} \rho \cdot dV = -\iiint\limits_{\left(V\right)} \frac{d \rho}{dt}dV
+	\end{equation*}
+	Both combined leads to the Continuity Equation
+	\begin{equation*}
+		\oiint\limits_{\left(S\right)} \vec{J} \cdot \vec{dS} = - \iiint\limits_{\left(V\right)} \frac{d\rho}{dt}dV \rightarrow \nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}
+	\end{equation*}
+
+\textbf{\\ Ohmic law\\}
+\begin{minipage}[lt]{11cm}
+	\begin{tabular}{l}
+		\(\displaystyle dI = \frac{dU}{R} = G \cdot dU = \sigma \cdot \frac{dA}{l} \cdot dU \) \\
+		\(\displaystyle G = \sigma \cdot \frac{dA}{l} \hspace{2cm} R = \rho \cdot \frac{l}{s} \) \\
+		\(\displaystyle J \cdot dA = \sigma \cdot \frac{dA}{l} \cdot E \cdot l \rightarrow J = \sigma \cdot E \) \\
+		or as vectors: \(\displaystyle \vec{J} = \sigma \cdot \vec{E}\)
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[rt]{8cm}
+	\includegraphics[width=.5\textwidth]{./images/ohmic.pdf}
+\end{minipage}
+
 
 \textbf{\\ \\ Rules \\}
 \begin{tabular}{ll}
-	Curl of a gradient is always equal to zero: & \(\displaystyle \nabla \times \left(\nabla a\right) \equiv 0\) \\
-	Divergence of a curl si always equal to zero: & \(\displaystyle \nabla \cdot \left(\nabla \times \vec{a}\right) \equiv 0 \)\\
+	Curl of a gradient is always equal to zero: & \(\displaystyle \nabla \times \left(\nabla \cdot \vec{a} \right) \equiv 0\) \\
+	Divergence of a curl is always equal to zero: & \(\displaystyle \nabla \cdot \left(\nabla \times \vec{a}\right) \equiv 0 \)\\
 \end{tabular}
 
 \textbf{\\ \\ Operators \\} 
