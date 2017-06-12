@@ -247,4 +247,9 @@ is obtained, with the vectors:
 \begin{equation*}
 	E_l = \sum_{\substack{e\\l\in\Omega^e}} \iiint\limits_{\left(\Omega ^e\right)} \rho \cdot N_l(x,y,z) \cdot dV
 \end{equation*}
-where $k$ is the column and $l$ the row of the sparse matrix $K$.
+where $k$ is the column and $l$ the row of the sparse matrix $K$. \newline \newline
+\textbf{Important:} BC are set in $K$:
+\begin{itemize}
+	\item Dirichlet: row = 0, exept diagonal elements
+	\item Neumann: this is already set to 0
+\end{itemize}
