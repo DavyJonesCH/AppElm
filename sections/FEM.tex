@@ -1,6 +1,6 @@
 \section{FEM}
 
-\subsection{General 2D Form}
+\subsection{2D as weighted residuals}
 The PDE of second order (strom form) along with the corresponding BCs form the BVP
 \begin{equation*}
 	-\frac{\partial }{\partial x}\left(a_x \frac{\partial \Phi}{\partial x}\right) - \frac{\partial }{\partial y}\left(\frac{\partial \Phi}{\partial y}\right) + \beta \Phi = f, (x,y) \in \Omega \subseteq R^2
@@ -22,7 +22,7 @@ The method of weighted residuals (approximation to $0$) is used in order to abta
 \end{equation*}
 The name 'weak' comes from the fact that this form consists of only partial derivatives of first oder, while the partial derivatives in the BVP are of second order ('strong' form).
 
-\subsection{Meshing}
+\subsubsection{Meshing}
 The goal for meshing is to get from complex geometries to large numbers of elements with simple geometry (triangles, quadrilaterals).\newline
 
 With a subdivison of
@@ -145,16 +145,16 @@ which should be as large as possible. Finally, the approximation of the unknown 
 \end{equation*}
 where ${N_i}^e(x,y)$ is the shape function of the node $i$ of the element $e$.
 
-\textbf{\\ Shape function \\ \\}
+\textbf{\\ \\ Shape function \\}
 The shape functions of linear triangular elements are obtained as
 \begin{equation*}
-	{N_1}^e(x,y) = \frac{1}{2A} \left[\left({x_2}^e {y_3}^e - {x_3}^e {y_2}^e\right) +  \left({y_2}^e - {y_3}^e\right)\cdot x + \left({x_3}^e - {x_2}^e\right)\cdot y\right]
+	{N_1}^e(x,y) = \frac{1}{2A} \left[\underbrace{\left({x_2}^e {y_3}^e - {x_3}^e {y_2}^e\right)}_{a_1} +  \underbrace{\left({y_2}^e - {y_3}^e\right)}_{b_1} \cdot x + \underbrace{\left({x_3}^e - {x_2}^e\right)}_{c_1} \cdot y\right]
 \end{equation*}
 \begin{equation*}
-	{N_2}^e(x,y) = \frac{1}{2A} \left[\left({x_3}^e {y_1}^e - {x_1}^e {y_3}^e\right) +  \left({y_3}^e - {y_1}^e\right)\cdot x + \left({x_1}^e - {x_3}^e\right)\cdot y\right]
+	{N_2}^e(x,y) = \frac{1}{2A} \left[\underbrace{\left({x_3}^e {y_1}^e - {x_1}^e {y_3}^e\right)}_{a_2} +  \underbrace{\left({y_3}^e - {y_1}^e\right)}_{b_2}\cdot x + \underbrace{\left({x_1}^e - {x_3}^e\right)}_{c_2} \cdot y\right]
 \end{equation*}
 \begin{equation*}
-	{N_3}^e(x,y) = \frac{1}{2A} \left[\left({x_1}^e {y_2}^e - {x_2}^e {y_1}^e\right) +  \left({y_1}^e - {y_2}^e\right)\cdot x + \left({x_2}^e - {x_1}^e\right)\cdot y\right]
+	{N_3}^e(x,y) = \frac{1}{2A} \left[\underbrace{\left({x_1}^e {y_2}^e - {x_2}^e {y_1}^e\right)}_{a_3} +  \underbrace{\left({y_1}^e - {y_2}^e\right)}_{b_3} \cdot x + \underbrace{\left({x_2}^e - {x_1}^e\right)}_{c_3} \cdot y\right]
 \end{equation*}
 
 \begin{figure}[h!]
@@ -166,7 +166,7 @@ Due to local character of the shape function, it is simple to switch from the lo
 	\Phi^e(x,y) = \sum_{i=1}^{3}{N_i}^e(x,y) \cdot {\Phi_i}^e \xrightarrow{\textrm{Local to Global Notation}} \Phi(x,y) = \sum_{i=1}^{N_n} N_i(x,y) \cdot \Phi_i
 \end{equation*}
 
-\subsection{Sparse Linear System}
+\subsubsection{Sparse Linear System}
 \begin{minipage}[lt]{13cm}
 	Galerkin method suggests that the shape functions themselves play a role of the weigthing functions: 
 	\begin{equation*}
@@ -184,7 +184,7 @@ Due to local character of the shape function, it is simple to switch from the lo
 	\end{centering}
 \end{minipage}
 
-\textbf{Solvers \\}
+\textbf{\\ \\Solvers \\}
 Direct solution of the FEM System of equations
 \begin{itemize}
 	\item LU-decompositon
@@ -199,3 +199,52 @@ Iterative solution methods
 	\item Iterative methods are very suitable for large systems but have a slow convergence when the FEM matrix is ill-conditioned (which is usually the case)
 	\item Convergence acceleration could be achieved by using preconditioning methods: diagonal preconditioning, ILU (incomplete-LU), ect. 
 \end{itemize}
+
+\subsection{3D as variational integral (integral of electric energy)}
+The energy in a system can be computed as
+\begin{equation*}
+	W_e = \frac{1}{2} \iiint\limits_{\left(\Omega\right)} \rho \cdot \varphi \cdot dV = \frac{1}{2} \iiint\limits_{\left(\Omega	\right)} \vec{D} \cdot \vec{E} dV
+\end{equation*}
+(first integral is the microscopic pendent to the macroscopic $W_e = \frac{1}{2} QU = \frac{1}{2}CU^2$) \newline
+Since a physical system is always trying to minimize its energy, the so-called FEM variational integral can be written as
+\begin{equation*}
+	\textrm{min: } W_e = \iiint\limits_{\left(\Omega\right)} \rho \cdot \varphi \cdot dV - \frac{1}{2} \iiint\limits_{\left(\Omega\right)} \varepsilon \cdot \left(\nabla \varphi\right)^2 dV
+\end{equation*}
+
+\begin{minipage}[rt]{12cm}
+	\begin{tabular}{l}
+		Linear tetrahedral element: \\
+		\begin{equation*}
+			\Phi^e(x,y,z) = \sum_{k=1}^{4}{N_k}^e(x,y,z) \cdot {\Phi_k}^e
+		\end{equation*} \\
+		With the shape function: \\
+		\begin{equation*}
+			{N_k}^e = (x,y,z) = \frac{1}{6 V^e}\left({a_j}^e + {b_j}^e x + {c_j}^e y + {d_j}^e z\right)
+		\end{equation*}
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[lt]{8cm}
+	\includegraphics[width=.6\textwidth]{./images/tetraheder.pdf}\\
+\end{minipage}
+
+\subsubsection{Sparse system of linear equations}
+Again a large sparse system with the following form
+\begin{equation*}	
+	\underbrace{\left[K\right]}_{\textrm{sparse matrix}} \cdot \underbrace{\{\Phi\}}_{\textrm{unknowns}} = \underbrace{\{E\}}_{\textrm{excitation}}
+\end{equation*}
+is obtained, with the vectors:
+\begin{equation*}
+	K_{kl} = \sum_{\substack{e\\k,l\in\Omega^e}} \iiint\limits_{\left(\Omega ^e\right)} \varepsilon \cdot \nabla N_k(x,y,z) \cdot \nabla N_l(x,y,z) \cdot dV
+	\hspace{2cm}
+	\{\Phi\} =
+	\begin{bmatrix}
+		\varphi_1 \\
+		\varphi_2 \\ 
+		\vdots \\
+		\varphi_N
+	\end{bmatrix}
+\end{equation*}
+\begin{equation*}
+	E_l = \sum_{\substack{e\\l\in\Omega^e}} \iiint\limits_{\left(\Omega ^e\right)} \rho \cdot N_l(x,y,z) \cdot dV
+\end{equation*}
+where $k$ is the column and $l$ the row of the sparse matrix $K$.
