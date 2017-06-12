@@ -31,7 +31,7 @@ With a subdivison of
 \end{equation*}
 where the superscript $e$ refers to a local approximation within the element $e$, the original weak form becomes
 \begin{equation*}
-	\sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} \alpha^e \nabla {w_i}^e \cdot \nabla \Phi^e d\Omega + \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} {w_i}^e\beta^e\Phi^e d\Omega - \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)}{w_i}^e f^e d\Omega  - \sum_{e} \int\limits_{\partial \Omega^e} {w_i}^e q^e dl = 0
+	\sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} \alpha^e \nabla {w_i}^e \cdot \nabla \Phi^e\,d\Omega + \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} {w_i}^e\beta^e\Phi^e\,d\Omega - \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)}{w_i}^e f^e\,d\Omega  - \sum_{e} \int\limits_{\partial \Omega^e} {w_i}^e q^e\,dl = 0
 \end{equation*} 
 
 \begin{minipage}[rt]{12cm}
@@ -203,7 +203,7 @@ Iterative solution methods
 \subsection{3D as variational integral (integral of electric energy)}
 The energy in a system can be computed as
 \begin{equation*}
-	W_e = \frac{1}{2} \iiint\limits_{\left(\Omega\right)} \rho \cdot \varphi \cdot dV = \frac{1}{2} \iiint\limits_{\left(\Omega	\right)} \vec{D} \cdot \vec{E} dV
+	W_e = \frac{1}{2} \iiint\limits_{\left(\Omega\right)} \rho \cdot \varphi \cdot dV = \frac{1}{2} \iiint\limits_{\left(\Omega	\right)} \vec{D} \cdot \vec{E}\,dV
 \end{equation*}
 (first integral is the microscopic pendent to the macroscopic $W_e = \frac{1}{2} QU = \frac{1}{2}CU^2$) \newline
 Since a physical system is always trying to minimize its energy, the so-called FEM variational integral can be written as
@@ -253,3 +253,11 @@ where $k$ is the column and $l$ the row of the sparse matrix $K$. \newline \newl
 	\item Dirichlet: row = 0, exept diagonal elements
 	\item Neumann: this is already set to 0
 \end{itemize}
+
+\subsection{Vector form}
+Nodal elements give contuinity in tangential and normal components, vectors only in tangential component. Eddy current simulations for example will deliver wrong results if nodal elemnts are used. \newline \newline
+
+A vector weak form approach for solving eddy current problems is given as
+\begin{equation*}
+	\iint\limits_{\left(\Omega\right)} \left(\frac{1}{\mu}\nabla \times \vec{A}\right) \cdot \left(\nabla \times \vec{w}_i\right)\,dS + \iint\limits_{\left(\Omega\right)} \vec{w}_i \cdot j\omega\sigma\vec{A}\,dS = \iint\limits_{\left(\Omega\right)}\vec{w}_i \cdot \vec{J}_s\,dS
+ \end{equation*}
