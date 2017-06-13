@@ -23,7 +23,7 @@ The method of weighted residuals (approximation to $0$) is used in order to abta
 The name 'weak' comes from the fact that this form consists of only partial derivatives of first oder, while the partial derivatives in the BVP are of second order ('strong' form).
 
 \subsubsection{Meshing}
-The goal for meshing is to get from complex geometries to large numbers of elements with simple geometry (triangles, quadrilaterals).\newline
+The goal for meshing is to get from complex geometries to large numbers (max. 25 Million because of rounding errors) of elements with simple geometry (triangles, quadrilaterals).\newline
 
 With a subdivison of
 \begin{equation*}
@@ -31,7 +31,7 @@ With a subdivison of
 \end{equation*}
 where the superscript $e$ refers to a local approximation within the element $e$, the original weak form becomes
 \begin{equation*}
-	\sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} \alpha^e \nabla {w_i}^e \cdot \nabla \Phi^e\,d\Omega + \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} {w_i}^e\beta^e\Phi^e\,d\Omega - \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)}{w_i}^e f^e\,d\Omega  - \sum_{e} \int\limits_{\partial \Omega^e} {w_i}^e q^e\,dl = 0
+	\sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} \alpha^e \nabla {w_i}^e \cdot \nabla \Phi^e\,d\Omega + \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)} {w_i}^e\beta^e\Phi^e\,d\Omega - \sum_{e=1}^{N_e} \iint\limits_{\left(\Omega^e\right)}{w_i}^e f^e\,d\Omega  - \sum_{{\substack{e\\\partial \Omega ^e\in\partial_N\Omega}}} \int\limits_{\partial \Omega^e} {w_i}^e q^e\,dl = 0
 \end{equation*} 
 
 \begin{minipage}[rt]{12cm}
@@ -261,3 +261,23 @@ A vector weak form approach for solving eddy current problems is given as
 \begin{equation*}
 	\iint\limits_{\left(\Omega\right)} \left(\frac{1}{\mu}\nabla \times \vec{A}\right) \cdot \left(\nabla \times \vec{w}_i\right)\,dS + \iint\limits_{\left(\Omega\right)} \vec{w}_i \cdot j\omega\sigma\vec{A}\,dS = \iint\limits_{\left(\Omega\right)}\vec{w}_i \cdot \vec{J}_s\,dS
  \end{equation*}
+ The vector functions used for approximating the vector unknown function over a single element are
+ \begin{equation*}
+ 	\vec{A}^e\left(x,y\right) = \sum_{j=1}^{3}\vec{N_j}^e\left(x,y\right) {A_j}^e, {A_j}^e = \vec{e_j}^e \cdot \vec{A} \xrightarrow{\textrm{Local to Global Notation}} \vec{A}\left(x,y\right) = \sum_{j=1}^{N_{\textrm{edges}}} \vec{N}_j \left(x,y\right) A_j, Aj = \vec{e}_j \cdot \vec{A}
+ \end{equation*}
+ where each edge belongs to two elements (or one if Boundary Condition!).
+ \begin{figure}[h!]
+	 \centering
+	 \includegraphics[width=.8\textwidth]{./images/vectorShape.pdf}
+ \end{figure}
+ 
+Choosing the weighting function the same as the vector shape function (Galerkin approach), the linear system
+\begin{equation*}
+	\left[K\right] \cdot \{A\} = \{b\}
+\end{equation*}
+can be solved with the vectors
+\begin{equation*}
+	K_{ij} = \sum_{\substack{e\\i,j\in\Delta^e}} \left(\iint\limits_{\left(\Delta^e\right)} \frac{1}{\mu} \underbrace{\left(\nabla \times \vec{N}_i\right)\cdot \left(\nabla \times \vec{N}_j\right)}_{\textrm{bad conditioned}}\,dS + \iint\limits_{\left(\Delta^e\right)} j\omega\sigma\vec{N}_i\cdot \vec{N}j\,dS\right)
+	\hspace{2cm}
+	b_i = \sum_{i\in\Delta^e}^{\textrm{Elements}} \iint\limits_{\Delta^e} \vec{N}_i \cdot \vec{J}_s\,dS.
+\end{equation*}
