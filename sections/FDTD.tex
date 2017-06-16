@@ -1,5 +1,7 @@
 \section{FDTD}
-The Finite Difference Time Domain (FDTD) is a method to numerically solve Maxwell equations in time domain, therefore, it is especially suited for transient analysis and/or for wideband analysis. Generally, it is easy to implement and it scales very good for large simulations, however, it is difficult to simulate curved surfaces with this approach.
+The Finite Difference Time Domain (FDTD) is a method to numerically solve Maxwell equations in time domain, therefore, it is especially suited for transient analysis and/or for wideband analysis. Generally, it is easy to implement and it scales very good for large simulations, however, it is difficult to simulate curved surfaces with this approach.\\
+It is not suited for resonant systems or systems with dispersion. But the material properties ($\mu_r,\epsilon_r$) can be set for every computational node separately!\\ 
+Mostly very small simulation time steps are required.
 
 \subsection{Numerical Solution of PDEs}
 The general Taylor series expansion of function $f(x,t)$ can be written in numerical form as 
