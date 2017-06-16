@@ -8,12 +8,10 @@ Sharp edges, corners or triple points of dielectric and conductive bodies are ty
 		\item Shielding, where the shield is on the same potential.
 		\item Coating with a high(er) permittivity material. 
 		\begin{equation*}
-			E_{n,\textrm{coating}} = \frac{\varepsilon_{r,\textrm{conductor}}}{\varepsilon_{r,\textrm{coating}}} \cdot E_{n,\textrm{conductor}}
+			\vec{D_2}\cdot \vec{n} = \vec{D_1}\cdot \vec{n} \Rightarrow E_{n,\textrm{2}} = \frac{\varepsilon_{r1}}{\varepsilon_{r2}} \cdot E_{n,\textrm{1}}
 		\end{equation*}
 		\begin{equation*}
-			V = E_{n, \textrm{coating}} \cdot d_\textrm{coating} + E_{n,\textrm{conductor}} + d_\textrm{conductor}
-			\vspace{2cm}
-			\Rightarrow E_{n,\textrm{coating}} 
+			V = E_2 \cdot d_2 + E_1 \cdot d_1 \Rightarrow E_2 = \frac{V}{d_1\cdot \frac{\varepsilon_{r2}}{\varepsilon_{r1}}+d_2}
 		\end{equation*}
 		\item Hiding triple points to capture the electrons $\rightarrow$ free ions recombine.
 	\end{itemize}
