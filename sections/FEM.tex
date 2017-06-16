@@ -39,9 +39,9 @@ where the superscript $e$ refers to a local approximation within the element $e$
 		Linear approximation of the unknown function over the element: \\
 		\(\displaystyle \Phi^e(x,y) = a + bx + cy \) \\
 		Expressed wit respect to the nodal values: \\
-		\(\displaystyle {\Phi_1}^e = a + b{x_1}^e + c{y_1}^2 \) \\
-		\(\displaystyle {\Phi_2}^e = a + b{x_2}^e + c{y_2}^2 \) \\
-		\(\displaystyle {\Phi_3}^e = a + b{x_3}^e + c{y_3}^2 \) \\
+		\(\displaystyle {\Phi_1}^e = a + b{x_1}^e + c{y_1}^e \) \\
+		\(\displaystyle {\Phi_2}^e = a + b{x_2}^e + c{y_2}^e \) \\
+		\(\displaystyle {\Phi_3}^e = a + b{x_3}^e + c{y_3}^e \) \\
 		\(\displaystyle \Rightarrow 
 			\begin{bmatrix}
 				{\Phi_1}^e \\
@@ -129,7 +129,7 @@ which should be as large as possible. Finally, the approximation of the unknown 
 	\begin{bmatrix}
 		{\Phi_1}^e \\
 		{\Phi_2}^e \\
-		{\Phi_2}^e \\
+		{\Phi_3}^e \\
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
@@ -139,7 +139,7 @@ which should be as large as possible. Finally, the approximation of the unknown 
 	\begin{bmatrix}
 		{\Phi_1}^e \\
 		{\Phi_2}^e \\
-		{\Phi_2}^e \\
+		{\Phi_3}^e \\
 	\end{bmatrix}
 	= \sum_{i=1}^{3} {N_i}^e(x,y) \cdot {\Phi_i}^e
 \end{equation*}
@@ -219,14 +219,14 @@ Since a physical system is always trying to minimize its energy, the so-called F
 		\end{equation*} \\
 		With the shape function: \\
 		\begin{equation*}
-			{N_k}^e = (x,y,z) = \frac{1}{6 V^e}\left({a_j}^e + {b_j}^e x + {c_j}^e y + {d_j}^e z\right)
+			{N_j}^e = (x,y,z) = \frac{1}{6 V^e}\left({a_j}^e + {b_j}^e x + {c_j}^e y + {d_j}^e z\right)
 		\end{equation*}
 	\end{tabular}
 \end{minipage}
 \begin{minipage}[lt]{8cm}
 	\includegraphics[width=.6\textwidth]{./images/tetraheder.pdf}\\
 \end{minipage}
-
+Where $V^e$ is the volume of the tetraheder $e$.
 \subsubsection{Sparse system of linear equations}
 Again a large sparse system with the following form
 \begin{equation*}	

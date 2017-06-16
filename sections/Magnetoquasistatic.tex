@@ -29,7 +29,13 @@ If the material is homogeneous this equation can be written in time or frequency
 \begin{equation*}
 	\Delta\vec{A} -\mu\sigma\frac{\partial \vec{A}}{\partial t} = -\mu \vec{J}_s, (x,y,z)\in \Omega
 	\hspace{2cm}
-	\Delta\vec{A} - j\omega\mu\sigma\underline{\vec{A}} = -\mu\underline{\vec{J}_s}, (x,y,z)\in \Omega
+	\Delta\underline{\vec{A}} - j\omega\mu\sigma\underline{\vec{A}} = -\mu\underline{\vec{J}_s}, (x,y,z)\in \Omega
+\end{equation*}
+
+To solve a eddy current problem, first the initial current distribution $J_s$ needs to be computed if it is not given. The resulting total current density is then determined by:
+
+\begin{equation*}
+	\underline{\vec{J}} = \underline{\vec{J}_s} + \sigma\underline{\vec{E}} = \underline{\vec{J}_s} - j \omega \underline{\vec{A}} 
 \end{equation*}
 
 \textbf{\\ Boundary Value Problem (BVP)\\}
