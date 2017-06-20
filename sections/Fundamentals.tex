@@ -14,6 +14,9 @@
 \hline Magnetic field & $\vec{H} = \frac{\vec{B}}{\mu}$ & $\frac{A}{m}$\\
 \hline Electric permittivity & $\varepsilon = \varepsilon_0 \varepsilon_r$ & $\varepsilon_0 = 8.85 \cdot 10^{-12} \left[\frac{F}{m} = \frac{As}{Vm}\right]$\\
 \hline Magnetic permeability & $\mu = \mu_0 \mu_r$ & $\mu_0 = 4\pi \cdot 10^{-7} \left[\frac{Tm}{A} = \frac{H}{m} = \frac{Vs}{Am}\right]$ \\
+\hline Specific electric conductivity & $\sigma = \frac{1}{\rho}$ & $\sigma_\textrm{Cu} = 5.96 \cdot 10^7 \left[\frac{S}{m} = \frac{1}{\Omega m}\right]$ \\
+\hline Electric potential & $\varphi$ & $V$ \\
+\hline Magnetic potential & $A$ & $Tm = \frac{Vs}{m}$ \\
 \hline Speed of light & $c_0$ & $c_0 = 299'792'458 [\frac{m}{s}] \approx 3\cdot 10^8 [\frac{m}{s}]$\\
 \hline
 \end{tabular} 
@@ -38,12 +41,12 @@
 	\includegraphics[width=.8\textwidth]{./images/Divergence.pdf}
 \end{minipage}
 \begin{minipage}[rt]{13cm}
-	In the central point $A$ of this field distribution is: $div \vec{a} > 0$. Generally speaking, a positive or negative divergence reveals a field source or a field sink, respectively. \\ \\
+	In the central point $A$ of this field distribution is: $\mathrm{div}~\vec{a} > 0$. Generally speaking, a positive or negative divergence reveals a field source or a field sink, respectively. \\ \\
 	\begin{tabular}{ll}
 		Vector field: & \(\displaystyle \vec{a} = \vec{a}\left(\vec{r}\right) = \vec{a}\left(x,y,z\right)\) \\
-		Divergence is a scalar: & \(\displaystyle div~\vec{a} = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)} \vec{a} \cdot \vec{dA}}{\textrm{measure}\left(D\right)}, D\subseteq R^3\) \\
-		Divergence in Cartesian coordinates: & \(\displaystyle div~\vec{a} = \frac{\partial a_x}{\partial x} + \frac{\partial a_y}{\partial y} + \frac{\partial a_z}{\partial z} \)\\
-		Divergence and $\nabla$-operator: & \(\displaystyle div~\vec{a} = \nabla \cdot \vec{a} \) \\
+		Divergence is a scalar: & \(\displaystyle \mathrm{div}~\vec{a} = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)} \vec{a} \cdot \vec{dA}}{\textrm{measure}\left(D\right)}, D\subseteq R^3\) \\
+		Divergence in Cartesian coordinates: & \(\displaystyle \mathrm{div}~\vec{a} = \frac{\partial a_x}{\partial x} + \frac{\partial a_y}{\partial y} + \frac{\partial a_z}{\partial z} \)\\
+		Divergence and $\nabla$-operator: & \(\displaystyle \mathrm{div}~\vec{a} = \nabla \cdot \vec{a} \) \\
 	\end{tabular}
 \end{minipage}
 \newpage
@@ -52,7 +55,7 @@
 	\includegraphics[width=.8\textwidth]{./images/Curl.pdf}
 \end{minipage}
 \begin{minipage}[rt]{13cm}
-	In the central point $A$ of this field distribution is: $curl \vec{a} > 0$. Generally speaking non-zero curl reveals a rotational field character. (Curl looks what stays in this area).\\ \\
+	In the central point $A$ of this field distribution is: $\textrm{curl}~\vec{a} > 0$. Generally speaking non-zero curl reveals a rotational field character. (Curl looks what stays in this area).\\ \\
 	\begin{tabular}{ll}
 		Vector field: & \(\displaystyle \vec{a} = \vec{a}\left(\vec{r}\right) = \vec{a}\left(x,y,z\right)\)\\
 		Curl is a vector: & \(\displaystyle \textrm{curl }\vec{a} = \lim\limits_{\textrm{diameter}\left(D\right)\rightarrow 0} \frac{\oiint_{\textrm{boundary}\left(D\right)} \vec{dA} \times \vec{a}}{\textrm{measure}\left(D\right)}, D\subseteq R^3\)\\
@@ -61,7 +64,13 @@
 			\vec{e_x} & \vec{e_y} & \vec{e_z} \\
 			\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 			a_x & a_y & a_z \\
-		\end{vmatrix}\) {\tiny \texttt{other coordinates in Bronstein: P.719ff}}\\
+		\end{vmatrix}\) \\
+		Curl in Cylindrical Coordinates: & \(\displaystyle \textrm{curl }\vec{a} = \frac{1}{r} 
+		\begin{vmatrix}
+			\vec{e_r} & r\vec{e_\varphi} & \vec{e_z} \\
+			\frac{\partial}{\partial r} & \frac{\partial}{\partial \varphi} & \frac{\partial}{\partial z} \\
+			a_r & ra_\varphi & a_z \\
+		\end{vmatrix} \) {\tiny \texttt{other coordinates in Bronstein: P.719ff}}\\
 		& \(\displaystyle = \vec{e_x}\frac{\partial}{\partial y}a_z +   		\vec{e_y}\frac{\partial}{\partial z}a_x +\vec{e_z}\frac{\partial}{\partial x}a_y - \vec{e_x}\frac{\partial}{\partial z}a_y - \vec{e_y}\frac{\partial}{\partial x}a_z - \vec{e_z}\frac{\partial}{\partial y}a_x\) \\
 		Curl and $\nabla$-operator: & \(\displaystyle \textrm{curl }\vec{a} = \nabla \times \vec{a} \) \\
 	\end{tabular}
