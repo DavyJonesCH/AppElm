@@ -1,7 +1,7 @@
 \section{FEM}
 
 \subsection{2D as weighted residuals}
-The PDE of second order (strom form) along with the corresponding BCs form the BVP
+The PDE of second order (strong form) along with the corresponding BCs form the BVP
 \begin{equation*}
 	-\frac{\partial }{\partial x}\left(a_x \frac{\partial \Phi}{\partial x}\right) - \frac{\partial }{\partial y}\left(\frac{\partial \Phi}{\partial y}\right) + \beta \Phi = f, (x,y) \in \Omega \subseteq R^2
 \end{equation*}
@@ -16,11 +16,11 @@ The PDE of second order (strom form) along with the corresponding BCs form the B
 \end{equation*}
 where $\Omega$ is the computational domain, $\alpha$ and $\beta$ are constants representing the material properties, $f$ is a predefined source term, $\vec{n}$ is a normal outward unit vector at a certain point on the Neumann boundary, and $\Phi$ is an unknown function. \\
 
-The method of weighted residuals (approximation to $0$) is used in order to abtain an equivalent integral form (weak form as it is first order) of the 2D BVP. With some (s)magic the equivalent integral form becomes:
+The method of weighted residuals (approximation to $0$) is used in order to abtain an equivalent integral form of the 2D BVP. With some (s)magic the equivalent integral form becomes:
 \begin{equation*}
 	\iint\limits_{\left(\Omega\right)} \nabla w_i \cdot \left(a_x \frac{\partial \Phi}{\partial x} \vec{e_x} + a_y \frac{\partial \Phi}{\partial y} \vec{e_y}\right) d\Omega + \iint\limits_{\left(\Omega\right)} w_i\beta\Phi d\Omega - \iint\limits_{\left(\Omega\right)} w_i f d\Omega  - \int\limits_{\left(\partial_N\Omega\right)} w_i \cdot q \cdot dl = 0
 \end{equation*}
-The name 'weak' comes from the fact that this form consists of only partial derivatives of first oder, while the partial derivatives in the BVP are of second order ('strong' form).
+The name 'weak' comes from the fact that this form consists of only partial derivatives of first order, while the partial derivatives in the BVP are of second order ('strong' form).
 
 \subsubsection{Meshing}
 The goal for meshing is to get from complex geometries to large numbers (max. 25 Million because of rounding errors) of elements with simple geometry (triangles, quadrilaterals).\newline
