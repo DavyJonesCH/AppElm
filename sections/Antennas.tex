@@ -12,7 +12,7 @@ Generally, an antenna is a system which allows to couple electromagnetic energy 
 	\item \textbf{Radiation Pattern:} Defines how the electromagnetic energy radiated by the antenna is spatially distributed in free space. (Doughnut plots)\\ It is the normalized radiation intensity in a polar plot. It is usually given in dB: \\
 	$F_{dB}(\phi,\theta)=10log_{10}F(\phi,\theta)$
 	\item \textbf{Radiation Efficiency:} Defines the ratio between the radiated energy and the energy applied to the antenna system.
-	\item \textbf{Bandwidth:} Usually, the bandwidth is defined as the frequency range where the radiated power is up to 10dB below the maximum radiated power ( $1<VSWR<1.5$)
+	\item \textbf{Bandwidth:} Usually, the bandwidth is defined as the frequency range where the radiated power is up to 10dB below the maximum radiated power ( $1<\textrm{VSWR}<1.5$)
 	\item \textbf{Near Field:} $\lambda < r < 4$	\hspace{2cm} \textbf{Far Field:} $ r > 10\cdot \lambda$
 	\item \textbf{Reciprocity:} An antenna receives signals as good as it can transmit them.
 
@@ -38,10 +38,10 @@ Generally, an antenna is a system which allows to couple electromagnetic energy 
 	\hline Equivalent Isotropic Radiated Power & $EIRP = G \cdot P_s$ & \\
 	\hline Antenna Impedance & $ Z_{ant} = R_{loss}+R{rad} +jX $ & \\
 	\hline Reflection Factor & $\Gamma = \frac{Z_{Ant}- Z_{TL}}{Z_{Ant} + Z_{TL}}$ & \\
-	\hline Voltage Standing Wave Ratio & $ VSWR = \frac{1+\Gamma}{1-\Gamma} > 1$ & \\
+	\hline Voltage Standing Wave Ratio & $ \textrm{VSWR} = \frac{1+\Gamma}{1-\Gamma} > 1$ & \\
 	\hline Effective Antenna Area & $ A_{eff,RX} = \frac{P_{RX}}{S(r,\phi,\theta)} = \frac{\lambda^2 D_{RX}}{4\pi} $ & \\
 	\hline Ratio between transmitted and received power & $ P_{RX} = P_{TX}\cdot G_{TX}\cdot G_{RX}\cdot (\frac{\lambda}{4 \pi R})^2 $ & R = Distance between Antennas\\
-	\hline Free Space Path Loss & $ FSPL = 20log_{10} \frac{4\pi R}{\lambda}$ & $\lambda = \frac{c}{f}$ \\
+	\hline Free Space Path Loss & $ \textrm{FSPL} = 20log_{10} \frac{4\pi R}{\lambda}$ & $\lambda = \frac{c}{f}$ \\
 	\hline 
 \end{tabular} 
 
