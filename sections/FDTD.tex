@@ -10,7 +10,7 @@ The general Taylor series expansion of function $f(x,t)$ can be written in numer
 \end{equation*}
 This approximation is called first order accurate forward difference approximation. \newline Using a sample in the past and a sample in the future it is possible to increase the precision of the approximation but increase the needed memory (residual error scales down with $\Delta t^2$)
 \begin{equation*}
-	\frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} = \frac{{f_i}^{n+1}-{f_i}^{n-1}}{\Delta t} - \underbrace{\frac{1}{6}\left(\Delta t\right)^2 \frac{\partial ^3 f}{\partial t^3}\bigg\rvert_{i}^{n}}_{O\left[(\Delta t)^2\right]} - \dots
+	\frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} = \frac{{f_i}^{n+1}-{f_i}^{n-1}}{2\Delta t} - \underbrace{\frac{1}{6}\left(\Delta t\right)^2 \frac{\partial ^3 f}{\partial t^3}\bigg\rvert_{i}^{n}}_{O\left[(\Delta t)^2\right]} - \dots
 \end{equation*}
 Following the same concept, one can calculate the derivative at half-time-steps:
 \begin{equation*}
@@ -92,7 +92,7 @@ the choice of the spatial step is provided by
 \end{equation*}
 where $m_\textrm{ovs}$ represents the oversampling ratio in spatial domain. Typical values for $m_\textrm{ovs}$ are between 10 and 100. $\lambda_\textrm{min}$ is the smallest wavelength in our system. Generally it is defined as 
 \begin{equation*}
-	\lambda_\textrm{min} = \frac{v_p}{f_\textrm{max}} = \frac{c_0}{\sqrt{\varepsilon_{r,\textrm{min}}\mu_{r,\textrm{min}}}\cdot f_\textrm{max} }
+	\lambda_\textrm{min} = \frac{v_{p,min}}{f_\textrm{max}} = \frac{c_0}{\sqrt{\varepsilon_{r,\textrm{min}}\mu_{r,\textrm{min}}}\cdot f_\textrm{max} }
 \end{equation*}
 where $v_p$ is the smallest velocity of the wave in any medium of our system, $d_\textrm{min}$ represents the smallest feature dimension we need to simulate and $f_\textrm{max}$ is the maximum frequency of the stimulus.
 
