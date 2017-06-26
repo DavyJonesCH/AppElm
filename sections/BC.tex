@@ -1,11 +1,11 @@
 \section{Boundary Conditions (BC)}
 \subsection{Interface Conditions}
 \begin{minipage}[rt]{8cm}
-	\begin{tabular}{l}
-		\(\displaystyle \left(\vec{D}_1 - \vec{D}_2\right) \cdot \vec{n} = \rho_S\) \\
-		\(\displaystyle\left(\vec{B}_1 - \vec{B}_2\right) \cdot \vec{n} = 0\)\\
-		\(\displaystyle\left(\vec{H}_2 - \vec{H}_1\right) \times \vec{n} =\vec{J}_S\) \\
-		\(\displaystyle\left(\vec{E}_2 - \vec{E}_1\right) \times \vec{n} = 0\)\\
+	\begin{tabular}{ll}
+		\(\displaystyle \left(\vec{D}_1 - \vec{D}_2\right) \cdot \vec{n} = \rho_S\) & \(\displaystyle \rightarrow D_{n1} = D_{n2} \textrm{ if } \rho_S = 0\)\\
+		\(\displaystyle\left(\vec{B}_1 - \vec{B}_2\right) \cdot \vec{n} = 0 \) & \(\displaystyle \rightarrow B_{n1} = B_{n2}\)\\
+		\(\displaystyle\left(\vec{H}_2 - \vec{H}_1\right) \times \vec{n} =\vec{J}_S \) & \(\displaystyle \rightarrow H_{t1} = H_{t2} \textrm{ if } \vec{J}_S = 0\) \\
+		\(\displaystyle\left(\vec{E}_2 - \vec{E}_1\right) \times \vec{n} = 0 \) & \(\displaystyle \rightarrow E_{t1} = E_{t2} \)\\
 	\end{tabular}
 \end{minipage}
 \begin{minipage}[lt]{11cm}
