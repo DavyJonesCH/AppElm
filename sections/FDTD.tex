@@ -56,8 +56,8 @@ With the same approach the second order centered approximation for the spatial d
 	Advantages of using the Yee Grid: \\
 	\begin{itemize}
 		\item Curl equations are automatically satisfied
-		\item When considering source free media and second order centered differencing, it can be shown that the Yee cell guaraties divergence difference equations \(\displaystyle \left(\nabla \cdot \vec{B} = 0 \textrm{ (always true)}, \nabla \cdot \vec{E} = 0 \textrm{ (normally true)} \right)\) 
-		\item Boundary donditions are automatically satisfied
+		\item When considering source free media and second order centered differencing, it can be shown that the Yee cell guaranties divergence difference equations \(\displaystyle \left(\nabla \cdot \vec{B} = 0 \textrm{ (always true)}, \nabla \cdot \vec{E} = 0 \textrm{ (normally true)} \right)\) 
+		\item Boundary conditions are automatically satisfied
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{7cm}
@@ -84,7 +84,7 @@ The choice of time step is driven by the spatial step and CFL condition. Assumin
 \end{equation*}
 If $\Delta x \neq \Delta y \neq \Delta z$ the following formula should be used:
 \begin{equation*}
-	\Delta t \leq \frac{1}{|v_p|} \cdot \frac{1}{\sqrt{\Delta x^2+\Delta y^2+\Delta z^2}}
+	\Delta t \leq \frac{1}{|v_p|} \cdot \frac{1}{\sqrt{\frac{1}{\Delta x^2}+\frac{1}{\Delta y^2}+\frac{1}{\Delta z^2}}}
 \end{equation*}
 the choice of the spatial step is provided by 
 \begin{equation*}
@@ -111,13 +111,13 @@ How to implement 1D-Maxwell wave equations in MATLAB:\\
 		\hspace{1cm}for each spatial step\\
 		\hspace{2cm}update the magnetic field from the electric field\\
 		\hspace{2cm} \includegraphics[width=.5\textwidth]{./images/updateH.pdf}\\
-		\hspace{2cm}end update H\\
+		\hspace{1cm}end update H\\
 		\hspace{1cm}Setup boundary conditions on H\\
 		\hspace{1cm}for each spatial step\\
-		\hspace{2cm}update the magnetic field from the electric field\\
+		\hspace{2cm}update the electric field from the magnetic field\\
 		\hspace{2cm} \includegraphics[width=.5\textwidth]{./images/updateE.pdf}\\
-		\hspace{2cm}end update H\\
-		\hspace{1cm}Setup boundary conditions on H\\
+		\hspace{1cm}end update E\\
+		\hspace{1cm}Setup boundary conditions on E\\
 	\end{tabular}
 	\\
 	\textbf{4.	End loop in time}
