@@ -6,7 +6,7 @@ Mostly very small simulation time steps are required.
 \subsection{Numerical Solution of PDEs}
 The general Taylor series expansion of function $f(x,t)$ can be written in numerical form as 
 \begin{equation*}
-	{f_i}^{n+1}= {f_i}^n + \underbrace{\left(t^{n+1} - t^n\right)}_{\Delta t} \frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} + \frac{1}{2} + \underbrace{\left(t^{n+1} - t^n\right)}_{\left(\Delta t\right)^2} \frac{\partial^2f}{\partial t^2} \bigg\rvert_{i}^{n} \Rightarrow \frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} = \frac{{f_i}^{n+1}-{f_i}^n}{\Delta t} - \underbrace{\frac{1}{2}\Delta t \frac{\partial ^2 f}{\partial t^2}\bigg\rvert_{i}^{n}}_{O(\Delta t)} - \dots
+	{f_i}^{n+1}= {f_i}^n + \underbrace{\left(t^{n+1} - t^n\right)}_{\Delta t} \frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} + \frac{1}{2} \underbrace{\left(t^{n+1} - t^n\right)}_{\left(\Delta t\right)^2} \frac{\partial^2f}{\partial t^2} \bigg\rvert_{i}^{n} \Rightarrow \frac{\partial f}{\partial t} \bigg\rvert_{i}^{n} = \frac{{f_i}^{n+1}-{f_i}^n}{\Delta t} - \underbrace{\frac{1}{2}\Delta t \frac{\partial ^2 f}{\partial t^2}\bigg\rvert_{i}^{n}}_{O(\Delta t)} - \dots
 \end{equation*}
 This approximation is called first order accurate forward difference approximation. \newline Using a sample in the past and a sample in the future it is possible to increase the precision of the approximation but increase the needed memory (residual error scales down with $\Delta t^2$)
 \begin{equation*}
